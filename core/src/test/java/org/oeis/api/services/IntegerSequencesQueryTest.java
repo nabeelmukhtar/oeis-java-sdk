@@ -37,7 +37,7 @@ public class IntegerSequencesQueryTest extends BaseOeisQueryTest {
 	@Before
 	public void setUp() throws Exception {
 		super.setUp();
-		service = factory.createCountryQuery();
+		service = factory.createIntegerSequenceQuery();
 	}
 
 	/* (non-Javadoc)
@@ -54,7 +54,7 @@ public class IntegerSequencesQueryTest extends BaseOeisQueryTest {
 	 */
 	@Test
 	public void testList() {
-		PagedList<IntegerSequence> countries = service.list();
-		assertNotNullOrEmpty("Countries must not be null or empty.", countries);
+		PagedList<IntegerSequence> sequences = service.list();
+		assertNotNullOrEmpty("Sequences must not be null or empty.", sequences);
 	}
 }

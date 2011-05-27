@@ -46,7 +46,7 @@ public class OeisQueryFactory {
      * 
      * @return the country query
      */
-    public IntegerSequenceQuery createCountryQuery() {
+    public IntegerSequenceQuery createIntegerSequenceQuery() {
     	return new IntegerSequenceQueryImpl();
     }
 }

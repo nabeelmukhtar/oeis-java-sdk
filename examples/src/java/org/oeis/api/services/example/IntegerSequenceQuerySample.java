@@ -37,7 +37,7 @@ public class IntegerSequenceQuerySample {
      */
 	public static void main(String[] args) throws Exception {
 		OeisQueryFactory factory = OeisQueryFactory.newInstance();
-		IntegerSequenceQuery service = factory.createCountryQuery();
+		IntegerSequenceQuery service = factory.createIntegerSequenceQuery();
 		List<IntegerSequence> countries = service.list();
 		for (IntegerSequence country : countries) {
 			printResult(country);
