@@ -98,10 +98,10 @@ public class IntegerSequence extends SchemaEntity {
 	private String identification;
 	
 	/** The absolute terms. */
-	private List<Integer> absoluteTerms = new ArrayList<Integer>();
+	private List<Long> absoluteTerms = new ArrayList<Long>();
 	
 	/** The signed terms. */
-	private List<Integer> signedTerms = new ArrayList<Integer>();
+	private List<Long> signedTerms = new ArrayList<Long>();
 	
 	/** The name. */
 	private String name;
@@ -171,7 +171,7 @@ public class IntegerSequence extends SchemaEntity {
 	 * 
 	 * @return the absolute terms
 	 */
-	public List<Integer> getAbsoluteTerms() {
+	public List<Long> getAbsoluteTerms() {
 		return absoluteTerms;
 	}
 	
@@ -180,7 +180,7 @@ public class IntegerSequence extends SchemaEntity {
 	 * 
 	 * @param absoluteTerms the new absolute terms
 	 */
-	public void setAbsoluteTerms(List<Integer> absoluteTerms) {
+	public void setAbsoluteTerms(List<Long> absoluteTerms) {
 		this.absoluteTerms = absoluteTerms;
 	}
 	
@@ -189,7 +189,7 @@ public class IntegerSequence extends SchemaEntity {
 	 * 
 	 * @return the signed terms
 	 */
-	public List<Integer> getSignedTerms() {
+	public List<Long> getSignedTerms() {
 		return signedTerms;
 	}
 	
@@ -198,7 +198,7 @@ public class IntegerSequence extends SchemaEntity {
 	 * 
 	 * @param signedTerms the new signed terms
 	 */
-	public void setSignedTerms(List<Integer> signedTerms) {
+	public void setSignedTerms(List<Long> signedTerms) {
 		this.signedTerms = signedTerms;
 	}
 	

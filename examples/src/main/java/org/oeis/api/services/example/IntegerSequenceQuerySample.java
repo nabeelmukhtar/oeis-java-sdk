@@ -38,7 +38,7 @@ public class IntegerSequenceQuerySample {
 	public static void main(String[] args) throws Exception {
 		OeisQueryFactory factory = OeisQueryFactory.newInstance();
 		IntegerSequenceQuery service = factory.createIntegerSequenceQuery();
-		List<IntegerSequence> sequences = service.withOrderedTerms(1,4,9,16,25,36).list();
+		List<IntegerSequence> sequences = service.withOrderedTerms(1,1,2,3,5,8).list();
 		for (IntegerSequence sequence : sequences) {
 			printResult(sequence);
 		}

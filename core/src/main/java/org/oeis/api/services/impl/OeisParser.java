@@ -194,11 +194,11 @@ public class OeisParser {
 	 * 
 	 * @return the list< integer>
 	 */
-	private List<Integer> parseIntegerArray(String value) {
+	private List<Long> parseIntegerArray(String value) {
 		String[] tokens = value.split(",");
-		List<Integer>  integers = new ArrayList<Integer>(tokens.length);
+		List<Long>  integers = new ArrayList<Long>(tokens.length);
 		for (int i = 0; i < tokens.length; i++) {
-			integers.add(Integer.parseInt(tokens[i]));
+			integers.add(Long.parseLong(tokens[i]));
 		}
 		return integers;
 	}

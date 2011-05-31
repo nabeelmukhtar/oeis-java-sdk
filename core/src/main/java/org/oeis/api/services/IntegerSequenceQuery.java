@@ -42,7 +42,7 @@ public interface IntegerSequenceQuery extends OeisQuery<IntegerSequence> {
 	 * 
 	 * @return the integer sequence query
 	 */
-	public IntegerSequenceQuery withOrderedTerms(int... terms);
+	public IntegerSequenceQuery withOrderedTerms(long... terms);
 	
 	/**
 	 * With terms.
@@ -51,7 +51,7 @@ public interface IntegerSequenceQuery extends OeisQuery<IntegerSequence> {
 	 * 
 	 * @return the integer sequence query
 	 */
-	public IntegerSequenceQuery withTerms(int... terms);
+	public IntegerSequenceQuery withTerms(long... terms);
 	
 	/**
 	 * With author.

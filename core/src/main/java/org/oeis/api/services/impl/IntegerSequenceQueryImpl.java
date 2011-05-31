@@ -75,7 +75,7 @@ public class IntegerSequenceQueryImpl extends BaseOeisQuery<IntegerSequence> imp
 	 * @see org.oeis.api.services.IntegerSequenceQuery#withOrderedTerms(int[])
 	 */
 	@Override
-	public IntegerSequenceQuery withOrderedTerms(int... terms) {
+	public IntegerSequenceQuery withOrderedTerms(long... terms) {
 		for (int i = 0; i < terms.length; i++) {
 			queryBuilder.append(terms[i]);
 			if (i != terms.length - 1) {
@@ -100,7 +100,7 @@ public class IntegerSequenceQueryImpl extends BaseOeisQuery<IntegerSequence> imp
 	 * @see org.oeis.api.services.IntegerSequenceQuery#withTerms(int[])
 	 */
 	@Override
-	public IntegerSequenceQuery withTerms(int... terms) {
+	public IntegerSequenceQuery withTerms(long... terms) {
 		for (int i = 0; i < terms.length; i++) {
 			queryBuilder.append(terms[i]).append(" ");
 		}
