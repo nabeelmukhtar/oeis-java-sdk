@@ -21,6 +21,7 @@ import org.oeis.api.schema.IntegerSequence;
 import org.oeis.api.schema.Keyword;
 import org.oeis.api.services.IntegerSequenceQuery;
 import org.oeis.api.services.constant.OeisApiUrls;
+import org.oeis.api.services.constant.ParameterNames;
 
 /**
  * The Class IntegerSequenceQueryImpl.
@@ -37,7 +38,6 @@ public class IntegerSequenceQueryImpl extends BaseOeisQuery<IntegerSequence> imp
 	@Override
 	public void reset() {
 		apiUrlBuilder = createOeisApiUrlBuilder(OeisApiUrls.SEARCH_URL);
-		apiUrlBuilder.withParameter("fmt", "text");
 	}
 
 	/* (non-Javadoc)
@@ -45,7 +45,7 @@ public class IntegerSequenceQueryImpl extends BaseOeisQuery<IntegerSequence> imp
 	 */
 	@Override
 	public IntegerSequenceQuery withAuthor(String author) {
-		queryBuilder.append("author:").append(author).append(" ");
+		queryBuilder.append(ParameterNames.AUTHOR).append(author).append(" ");
 		return this;
 	}
 
@@ -55,7 +55,7 @@ public class IntegerSequenceQueryImpl extends BaseOeisQuery<IntegerSequence> imp
 	@Override
 	public IntegerSequenceQuery withIds(String... ids) {
 		for (int i = 0; i < ids.length; i++) {
-			queryBuilder.append("id:").append(ids[i]).append(" ");
+			queryBuilder.append(ParameterNames.ID).append(ids[i]).append(" ");
 		}
 		return this;
 	}
@@ -66,7 +66,7 @@ public class IntegerSequenceQueryImpl extends BaseOeisQuery<IntegerSequence> imp
 	@Override
 	public IntegerSequenceQuery withKeywords(Keyword... keywords) {
 		for (int i = 0; i < keywords.length; i++) {
-			queryBuilder.append("keyword:").append(keywords[i].value()).append(" ");
+			queryBuilder.append(ParameterNames.KEYWORD).append(keywords[i].value()).append(" ");
 		}
 		return this;
 	}
@@ -112,7 +112,7 @@ public class IntegerSequenceQueryImpl extends BaseOeisQuery<IntegerSequence> imp
 	 */
 	@Override
 	public PagedList<IntegerSequence> list() {
-		apiUrlBuilder.withParameter("q", queryBuilder.toString().trim());
+		apiUrlBuilder.withParameter(ParameterNames.QUERY, queryBuilder.toString().trim());
 		return super.list();
 	}
 }

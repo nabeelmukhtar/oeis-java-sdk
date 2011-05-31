@@ -86,7 +86,7 @@ public final class OeisApiUrls {
 	     * @param urlFormat the url format
 	     */
 	    public OeisApiUrlBuilder(String urlFormat) {
-	    	this(urlFormat, ApplicationConstants.DEFAULT_API_VERSION, ApplicationConstants.DEFAULT_FORMAT);
+	    	this(urlFormat, ApplicationConstants.DEFAULT_FORMAT);
     	}
     	
     	/**
@@ -96,10 +96,9 @@ public final class OeisApiUrls {
 	     * @param apiVersion the api version
 	     * @param format the format
 	     */
-	    public OeisApiUrlBuilder(String urlFormat, String apiVersion, String format) {
+	    public OeisApiUrlBuilder(String urlFormat, String format) {
     		this.urlFormat = urlFormat;
-    		fieldsMap.put(ParameterNames.VERSION, apiVersion);
-    		fieldsMap.put(ParameterNames.FORMAT, format);
+    		parametersMap.put(ParameterNames.FORMAT, encodeUrl(format));
     	}
 	    
     	/**

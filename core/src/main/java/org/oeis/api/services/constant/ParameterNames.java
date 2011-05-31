@@ -21,12 +21,38 @@ package org.oeis.api.services.constant;
  */
 public interface ParameterNames {
 
-	/** The Constant VERSION. */
-	public static final String VERSION = "version";
-	
 	/** The Constant FORMAT. */
-	public static final String FORMAT = "format";
+	public static final String FORMAT = "fmt";
 	
 	/** The Constant PAGE. */
 	public static final String PAGE = "page";
+	
+	public static final String PER_PAGE = "per_page";
+	
+	public static final String QUERY = "q";
+	
+	public static final String MRV = "MRV";
+	
+	public static final String GAP_FILL = "Gapfill";
+	
+	public static final String FREQUENCY = "frequency";
+	
+	public static final String ID = "id:";
+	
+	public static final String SIGNED = "signed:";
+	public static final String SEQ = "seq:";
+	public static final String NAME = "name:";
+	public static final String OFFSET = "offset:";
+	public static final String COMMENT = "comment:";
+	public static final String REF = "ref:";
+	public static final String LINK = "link:";
+	public static final String FORMULA = "formula:";
+	public static final String EXAMPLE = "example:";
+	public static final String MAPLE = "maple:";
+	public static final String MATHEMATICA = "mathematica:";
+	public static final String PROGRAM = "program:";
+	public static final String XREF = "xref:";
+	public static final String KEYWORD = "keyword:";
+	public static final String AUTHOR = "author:";
+	public static final String EXTENSION = "extension:";
 }
