@@ -24,7 +24,7 @@ import org.oeis.api.services.OeisQueryFactory;
 
 
 /**
- * The Class CountryQuerySample.
+ * The Class IntegerSequenceQuerySample.
  */
 public class IntegerSequenceQuerySample {
 
@@ -38,18 +38,18 @@ public class IntegerSequenceQuerySample {
 	public static void main(String[] args) throws Exception {
 		OeisQueryFactory factory = OeisQueryFactory.newInstance();
 		IntegerSequenceQuery service = factory.createIntegerSequenceQuery();
-		List<IntegerSequence> countries = service.list();
-		for (IntegerSequence country : countries) {
-			printResult(country);
+		List<IntegerSequence> sequences = service.withOrderedTerms(1,4,9,16,25,36).list();
+		for (IntegerSequence sequence : sequences) {
+			printResult(sequence);
 		}
 	}
 
 	/**
 	 * Prints the result.
 	 * 
-	 * @param country the country
+	 * @param sequence the sequence
 	 */
-	private static void printResult(IntegerSequence country) {
-		System.out.println(country);
+	private static void printResult(IntegerSequence sequence) {
+		System.out.println(sequence.getCatalogNumber() + ":" + sequence.getIdentification() + ":" + sequence.getName());
 	}
 }

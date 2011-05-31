@@ -6,20 +6,15 @@
               as the first entry and export the buildfile again. -->
 <project basedir="." default="build" name="oeis-java-sdk">
     <property environment="env"/>
-    <property name="junit.output.dir" value="junit"/>
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.6"/>
     <property name="source" value="1.6"/>
     <path id="oeis-java-sdk.classpath">
         <pathelement location="target"/>
         <pathelement location="dev-lib/junit-4.5.jar"/>
-        <pathelement location="lib/gson-1.4.jar"/>
     </path>
     <target name="init">
         <mkdir dir="target"/>
-        <copy includeemptydirs="false" todir="target">
-            <fileset dir="schema/src/main/java" excludes="**/*.launch, **/*.java"/>
-        </copy>
         <copy includeemptydirs="false" todir="target">
             <fileset dir="core/src/main/java" excludes="**/*.launch, **/*.java"/>
         </copy>
@@ -33,7 +28,7 @@
             <fileset dir="core/src/test/resources" excludes="**/*.launch, **/*.java"/>
         </copy>
         <copy includeemptydirs="false" todir="target">
-            <fileset dir="examples/src/java" excludes="**/*.launch, **/*.java"/>
+            <fileset dir="examples/src/main/java" excludes="**/*.launch, **/*.java"/>
         </copy>
     </target>
     <target name="clean">
@@ -44,10 +39,6 @@
     <target name="build-subprojects"/>
     <target depends="init" name="build-project">
         <echo message="${ant.project.name}: ${ant.file}"/>
-        <javac debug="true" debuglevel="${debuglevel}" destdir="target" source="${source}" target="${target}">
-            <src path="schema/src/main/java"/>
-            <classpath refid="oeis-java-sdk.classpath"/>
-        </javac>
         <javac debug="true" debuglevel="${debuglevel}" destdir="target" source="${source}" target="${target}">
             <src path="core/src/main/java"/>
             <classpath refid="oeis-java-sdk.classpath"/>
@@ -65,55 +56,14 @@
             <classpath refid="oeis-java-sdk.classpath"/>
         </javac>
         <javac debug="true" debuglevel="${debuglevel}" destdir="target" source="${source}" target="${target}">
-            <src path="examples/src/java"/>
+            <src path="examples/src/main/java"/>
             <classpath refid="oeis-java-sdk.classpath"/>
         </javac>
     </target>
     <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
-    <target name="AllTests (1)">
-        <mkdir dir="${junit.output.dir}"/>
-        <junit fork="yes" printsummary="withOutAndErr">
-            <formatter type="xml"/>
-            <test name="org.worldbank.api.services.AllTests" todir="${junit.output.dir}"/>
-            <classpath refid="oeis-java-sdk.classpath"/>
-        </junit>
-    </target>
-    <target name="SourceQuerySample">
-        <java classname="org.worldbank.api.services.example.SourceQuerySample" failonerror="true" fork="yes">
+    <target name="IntegerSequenceQuerySample">
+        <java classname="org.oeis.api.services.example.IntegerSequenceQuerySample" failonerror="true" fork="yes">
             <classpath refid="oeis-java-sdk.classpath"/>
         </java>
-    </target>
-    <target name="CountryQuerySample">
-        <java classname="org.worldbank.api.services.example.CountryQuerySample" failonerror="true" fork="yes">
-            <classpath refid="oeis-java-sdk.classpath"/>
-        </java>
-    </target>
-    <target name="IncomeLevelQuerySample">
-        <java classname="org.worldbank.api.services.example.IncomeLevelQuerySample" failonerror="true" fork="yes">
-            <classpath refid="oeis-java-sdk.classpath"/>
-        </java>
-    </target>
-    <target name="IndicatorQuerySample">
-        <java classname="org.worldbank.api.services.example.IndicatorQuerySample" failonerror="true" fork="yes">
-            <classpath refid="oeis-java-sdk.classpath"/>
-        </java>
-    </target>
-    <target name="LendingTypeQuerySample">
-        <java classname="org.worldbank.api.services.example.LendingTypeQuerySample" failonerror="true" fork="yes">
-            <classpath refid="oeis-java-sdk.classpath"/>
-        </java>
-    </target>
-    <target name="TopicQuerySample">
-        <java classname="org.worldbank.api.services.example.TopicQuerySample" failonerror="true" fork="yes">
-            <classpath refid="oeis-java-sdk.classpath"/>
-        </java>
-    </target>
-    <target name="junitreport">
-        <junitreport todir="${junit.output.dir}">
-            <fileset dir="${junit.output.dir}">
-                <include name="TEST-*.xml"/>
-            </fileset>
-            <report format="frames" todir="${junit.output.dir}"/>
-        </junitreport>
     </target>
 </project>

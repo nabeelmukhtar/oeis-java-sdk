@@ -17,7 +17,7 @@
 package org.oeis.api.services;
 
 /**
- * The Class WorldBankException.
+ * The Class OeisException.
  */
 public class OeisException extends RuntimeException {
 
@@ -25,12 +25,12 @@ public class OeisException extends RuntimeException {
 	private static final long serialVersionUID = -2392119987027760999L;
 
 	/**
-	 * Instantiates a new world bank exception.
+	 * Instantiates a new oeis exception.
 	 */
 	public OeisException() {}
 
 	/**
-	 * Instantiates a new world bank exception.
+	 * Instantiates a new oeis exception.
 	 * 
 	 * @param message the message
 	 */
@@ -39,7 +39,7 @@ public class OeisException extends RuntimeException {
 	}
 
 	/**
-	 * Instantiates a new world bank exception.
+	 * Instantiates a new oeis exception.
 	 * 
 	 * @param cause the cause
 	 */
@@ -48,7 +48,7 @@ public class OeisException extends RuntimeException {
 	}
 
 	/**
-	 * Instantiates a new world bank exception.
+	 * Instantiates a new oeis exception.
 	 * 
 	 * @param message the message
 	 * @param cause the cause

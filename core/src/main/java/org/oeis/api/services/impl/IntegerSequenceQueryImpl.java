@@ -16,15 +16,20 @@
  */
 package org.oeis.api.services.impl;
 
+import org.oeis.api.common.PagedList;
 import org.oeis.api.schema.IntegerSequence;
+import org.oeis.api.schema.Keyword;
 import org.oeis.api.services.IntegerSequenceQuery;
 import org.oeis.api.services.constant.OeisApiUrls;
 
 /**
- * The Class CountryQueryImpl.
+ * The Class IntegerSequenceQueryImpl.
  */
 public class IntegerSequenceQueryImpl extends BaseOeisQuery<IntegerSequence> implements
 	IntegerSequenceQuery {
+	
+	/** The query builder. */
+	StringBuilder queryBuilder = new StringBuilder();
 
 	/* (non-Javadoc)
 	 * @see org.worldbank.api.services.WorldBankQuery#reset()
@@ -32,5 +37,82 @@ public class IntegerSequenceQueryImpl extends BaseOeisQuery<IntegerSequence> imp
 	@Override
 	public void reset() {
 		apiUrlBuilder = createOeisApiUrlBuilder(OeisApiUrls.SEARCH_URL);
+		apiUrlBuilder.withParameter("fmt", "text");
+	}
+
+	/* (non-Javadoc)
+	 * @see org.oeis.api.services.IntegerSequenceQuery#withAuthor(java.lang.String)
+	 */
+	@Override
+	public IntegerSequenceQuery withAuthor(String author) {
+		queryBuilder.append("author:").append(author).append(" ");
+		return this;
+	}
+
+	/* (non-Javadoc)
+	 * @see org.oeis.api.services.IntegerSequenceQuery#withIds(java.lang.String[])
+	 */
+	@Override
+	public IntegerSequenceQuery withIds(String... ids) {
+		for (int i = 0; i < ids.length; i++) {
+			queryBuilder.append("id:").append(ids[i]).append(" ");
+		}
+		return this;
+	}
+
+	/* (non-Javadoc)
+	 * @see org.oeis.api.services.IntegerSequenceQuery#withKeywords(org.oeis.api.schema.Keyword[])
+	 */
+	@Override
+	public IntegerSequenceQuery withKeywords(Keyword... keywords) {
+		for (int i = 0; i < keywords.length; i++) {
+			queryBuilder.append("keyword:").append(keywords[i].value()).append(" ");
+		}
+		return this;
+	}
+
+	/* (non-Javadoc)
+	 * @see org.oeis.api.services.IntegerSequenceQuery#withOrderedTerms(int[])
+	 */
+	@Override
+	public IntegerSequenceQuery withOrderedTerms(int... terms) {
+		for (int i = 0; i < terms.length; i++) {
+			queryBuilder.append(terms[i]);
+			if (i != terms.length - 1) {
+				queryBuilder.append(",");
+			} else {
+				queryBuilder.append(" ");
+			}
+		}
+		return this;
+	}
+
+	/* (non-Javadoc)
+	 * @see org.oeis.api.services.IntegerSequenceQuery#withQuery(java.lang.String)
+	 */
+	@Override
+	public IntegerSequenceQuery withQuery(String query) {
+		queryBuilder.append(query).append(" ");
+		return this;
+	}
+	
+	/* (non-Javadoc)
+	 * @see org.oeis.api.services.IntegerSequenceQuery#withTerms(int[])
+	 */
+	@Override
+	public IntegerSequenceQuery withTerms(int... terms) {
+		for (int i = 0; i < terms.length; i++) {
+			queryBuilder.append(terms[i]).append(" ");
+		}
+		return this;
+	}
+	
+	/* (non-Javadoc)
+	 * @see org.oeis.api.services.impl.BaseOeisQuery#list()
+	 */
+	@Override
+	public PagedList<IntegerSequence> list() {
+		apiUrlBuilder.withParameter("q", queryBuilder.toString().trim());
+		return super.list();
 	}
 }

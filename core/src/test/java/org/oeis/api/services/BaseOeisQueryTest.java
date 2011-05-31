@@ -29,7 +29,7 @@ import org.junit.Before;
 import org.oeis.api.services.OeisQueryFactory;
 
 /**
- * The Class BaseWorldBankQueryTest.
+ * The Class BaseOeisQueryTest.
  */
 public class BaseOeisQueryTest extends TestCase {
     

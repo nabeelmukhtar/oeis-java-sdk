@@ -39,7 +39,7 @@ import org.oeis.api.services.constant.ApplicationConstants;
 
 
 /**
- * The Class WorldBankApiGateway.
+ * The Class OeisApiGateway.
  */
 public abstract class OeisApiGateway {
 	

@@ -22,12 +22,12 @@ import org.oeis.api.services.impl.IntegerSequenceQueryImpl;
 
 
 /**
- * A factory for creating WorldBankQuery objects.
+ * A factory for creating OeisQuery objects.
  */
 public class OeisQueryFactory {
 
     /**
-     * Instantiates a new world bank query factory.
+     * Instantiates a new oeis query factory.
      */
 	private OeisQueryFactory() {
     }
@@ -35,16 +35,16 @@ public class OeisQueryFactory {
     /**
      * New instance.
      * 
-     * @return the world bank query factory
+     * @return the oeis query factory
      */
     public static OeisQueryFactory newInstance() {
         return new OeisQueryFactory();
     }
     
     /**
-     * Creates a new WorldBankQuery object.
+     * Creates a new OeisQuery object.
      * 
-     * @return the country query
+     * @return the integer sequence query
      */
     public IntegerSequenceQuery createIntegerSequenceQuery() {
     	return new IntegerSequenceQueryImpl();

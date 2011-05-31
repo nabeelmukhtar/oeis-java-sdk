@@ -63,6 +63,7 @@ public final class ApplicationConstants {
     /** The Constant READ_TIMEOUT. */
     public static final int READ_TIMEOUT = getIntProperty("org.oeis.api.services.readTimeout");
     
+    /** The Constant SEQUENCE_PATTERN. */
     public static final Pattern SEQUENCE_PATTERN = getPatternProperty("org.oeis.api.services.sequenceFormat");
     
     /**

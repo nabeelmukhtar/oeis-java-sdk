@@ -23,11 +23,452 @@
 
 package org.oeis.api.schema;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
- * The Class Country.
+ * The Class IntegerSequence.
  */
 public class IntegerSequence extends SchemaEntity {
 
     /** The Constant serialVersionUID. */
 	private static final long serialVersionUID = -8704389217990381580L;
+	
+	/**
+	 * The Class Offset.
+	 */
+	public static class Offset {
+		
+		/** The a. */
+		private int a;
+		
+		/** The b. */
+		private int b;
+		
+		/**
+		 * Instantiates a new offset.
+		 * 
+		 * @param a the a
+		 * @param b the b
+		 */
+		public Offset(int a, int b) {
+			super();
+			this.a = a;
+			this.b = b;
+		}
+		
+		/**
+		 * Gets the a.
+		 * 
+		 * @return the a
+		 */
+		public int getA() {
+			return a;
+		}
+		
+		/**
+		 * Sets the a.
+		 * 
+		 * @param a the new a
+		 */
+		public void setA(int a) {
+			this.a = a;
+		}
+		
+		/**
+		 * Gets the b.
+		 * 
+		 * @return the b
+		 */
+		public int getB() {
+			return b;
+		}
+		
+		/**
+		 * Sets the b.
+		 * 
+		 * @param b the new b
+		 */
+		public void setB(int b) {
+			this.b = b;
+		}
+	}
+	
+	/** The identification. */
+	private String identification;
+	
+	/** The absolute terms. */
+	private List<Integer> absoluteTerms = new ArrayList<Integer>();
+	
+	/** The signed terms. */
+	private List<Integer> signedTerms = new ArrayList<Integer>();
+	
+	/** The name. */
+	private String name;
+	
+	/** The detailed references. */
+	private List<String> detailedReferences = new ArrayList<String>();
+	
+	/** The links. */
+	private List<String> links = new ArrayList<String>();
+	
+	/** The formulas. */
+	private List<String> formulas = new ArrayList<String>();
+	
+	/** The cross references. */
+	private List<String> crossReferences = new ArrayList<String>();
+	
+	/** The author. */
+	private String author;
+	
+	/** The offset. */
+	private Offset offset;
+	
+	/** The maple program. */
+	private List<String> mapleProgram = new ArrayList<String>();
+	
+	/** The mathematica program. */
+	private List<String> mathematicaProgram = new ArrayList<String>();
+	
+	/** The other program. */
+	private List<String> otherProgram = new ArrayList<String>();
+	
+	/** The extendsions and errors. */
+	private List<String> extendsionsAndErrors = new ArrayList<String>();
+	
+	/** The examples. */
+	private List<String> examples = new ArrayList<String>();
+	
+	/** The keywords. */
+	private List<Keyword> keywords = new ArrayList<Keyword>();
+	
+	/** The comments. */
+	private List<String> comments = new ArrayList<String>();
+	
+	/** The catalog number. */
+	private String catalogNumber;
+	
+	/**
+	 * Gets the identification.
+	 * 
+	 * @return the identification
+	 */
+	public String getIdentification() {
+		return identification;
+	}
+	
+	/**
+	 * Sets the identification.
+	 * 
+	 * @param identification the new identification
+	 */
+	public void setIdentification(String identification) {
+		this.identification = identification;
+	}
+	
+	/**
+	 * Gets the absolute terms.
+	 * 
+	 * @return the absolute terms
+	 */
+	public List<Integer> getAbsoluteTerms() {
+		return absoluteTerms;
+	}
+	
+	/**
+	 * Sets the absolute terms.
+	 * 
+	 * @param absoluteTerms the new absolute terms
+	 */
+	public void setAbsoluteTerms(List<Integer> absoluteTerms) {
+		this.absoluteTerms = absoluteTerms;
+	}
+	
+	/**
+	 * Gets the signed terms.
+	 * 
+	 * @return the signed terms
+	 */
+	public List<Integer> getSignedTerms() {
+		return signedTerms;
+	}
+	
+	/**
+	 * Sets the signed terms.
+	 * 
+	 * @param signedTerms the new signed terms
+	 */
+	public void setSignedTerms(List<Integer> signedTerms) {
+		this.signedTerms = signedTerms;
+	}
+	
+	/**
+	 * Gets the name.
+	 * 
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+	
+	/**
+	 * Sets the name.
+	 * 
+	 * @param name the new name
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	/**
+	 * Gets the detailed references.
+	 * 
+	 * @return the detailed references
+	 */
+	public List<String> getDetailedReferences() {
+		return detailedReferences;
+	}
+	
+	/**
+	 * Sets the detailed references.
+	 * 
+	 * @param detailedReferences the new detailed references
+	 */
+	public void setDetailedReferences(List<String> detailedReferences) {
+		this.detailedReferences = detailedReferences;
+	}
+	
+	/**
+	 * Gets the links.
+	 * 
+	 * @return the links
+	 */
+	public List<String> getLinks() {
+		return links;
+	}
+	
+	/**
+	 * Sets the links.
+	 * 
+	 * @param links the new links
+	 */
+	public void setLinks(List<String> links) {
+		this.links = links;
+	}
+	
+	/**
+	 * Gets the formulas.
+	 * 
+	 * @return the formulas
+	 */
+	public List<String> getFormulas() {
+		return formulas;
+	}
+	
+	/**
+	 * Sets the formulas.
+	 * 
+	 * @param formulas the new formulas
+	 */
+	public void setFormulas(List<String> formulas) {
+		this.formulas = formulas;
+	}
+	
+	/**
+	 * Gets the cross references.
+	 * 
+	 * @return the cross references
+	 */
+	public List<String> getCrossReferences() {
+		return crossReferences;
+	}
+	
+	/**
+	 * Sets the cross references.
+	 * 
+	 * @param crossReferences the new cross references
+	 */
+	public void setCrossReferences(List<String> crossReferences) {
+		this.crossReferences = crossReferences;
+	}
+	
+	/**
+	 * Gets the author.
+	 * 
+	 * @return the author
+	 */
+	public String getAuthor() {
+		return author;
+	}
+	
+	/**
+	 * Sets the author.
+	 * 
+	 * @param author the new author
+	 */
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+	
+	/**
+	 * Gets the offset.
+	 * 
+	 * @return the offset
+	 */
+	public Offset getOffset() {
+		return offset;
+	}
+	
+	/**
+	 * Sets the offset.
+	 * 
+	 * @param offset the new offset
+	 */
+	public void setOffset(Offset offset) {
+		this.offset = offset;
+	}
+	
+	/**
+	 * Gets the maple program.
+	 * 
+	 * @return the maple program
+	 */
+	public List<String> getMapleProgram() {
+		return mapleProgram;
+	}
+	
+	/**
+	 * Sets the maple program.
+	 * 
+	 * @param mapleProgram the new maple program
+	 */
+	public void setMapleProgram(List<String> mapleProgram) {
+		this.mapleProgram = mapleProgram;
+	}
+	
+	/**
+	 * Gets the mathematica program.
+	 * 
+	 * @return the mathematica program
+	 */
+	public List<String> getMathematicaProgram() {
+		return mathematicaProgram;
+	}
+	
+	/**
+	 * Sets the mathematica program.
+	 * 
+	 * @param mathematicaProgram the new mathematica program
+	 */
+	public void setMathematicaProgram(List<String> mathematicaProgram) {
+		this.mathematicaProgram = mathematicaProgram;
+	}
+	
+	/**
+	 * Gets the other program.
+	 * 
+	 * @return the other program
+	 */
+	public List<String> getOtherProgram() {
+		return otherProgram;
+	}
+	
+	/**
+	 * Sets the other program.
+	 * 
+	 * @param otherProgram the new other program
+	 */
+	public void setOtherProgram(List<String> otherProgram) {
+		this.otherProgram = otherProgram;
+	}
+	
+	/**
+	 * Gets the extendsions and errors.
+	 * 
+	 * @return the extendsions and errors
+	 */
+	public List<String> getExtendsionsAndErrors() {
+		return extendsionsAndErrors;
+	}
+	
+	/**
+	 * Sets the extendsions and errors.
+	 * 
+	 * @param extendsionsAndErrors the new extendsions and errors
+	 */
+	public void setExtendsionsAndErrors(List<String> extendsionsAndErrors) {
+		this.extendsionsAndErrors = extendsionsAndErrors;
+	}
+	
+	/**
+	 * Gets the examples.
+	 * 
+	 * @return the examples
+	 */
+	public List<String> getExamples() {
+		return examples;
+	}
+	
+	/**
+	 * Sets the examples.
+	 * 
+	 * @param examples the new examples
+	 */
+	public void setExamples(List<String> examples) {
+		this.examples = examples;
+	}
+	
+	/**
+	 * Gets the keywords.
+	 * 
+	 * @return the keywords
+	 */
+	public List<Keyword> getKeywords() {
+		return keywords;
+	}
+	
+	/**
+	 * Sets the keywords.
+	 * 
+	 * @param keywords the new keywords
+	 */
+	public void setKeywords(List<Keyword> keywords) {
+		this.keywords = keywords;
+	}
+	
+	/**
+	 * Gets the comments.
+	 * 
+	 * @return the comments
+	 */
+	public List<String> getComments() {
+		return comments;
+	}
+	
+	/**
+	 * Sets the comments.
+	 * 
+	 * @param comments the new comments
+	 */
+	public void setComments(List<String> comments) {
+		this.comments = comments;
+	}
+	
+	/**
+	 * Gets the catalog number.
+	 * 
+	 * @return the catalog number
+	 */
+	public String getCatalogNumber() {
+		return catalogNumber;
+	}
+	
+	/**
+	 * Sets the catalog number.
+	 * 
+	 * @param catalogNumber the new catalog number
+	 */
+	public void setCatalogNumber(String catalogNumber) {
+		this.catalogNumber = catalogNumber;
+	}
 }

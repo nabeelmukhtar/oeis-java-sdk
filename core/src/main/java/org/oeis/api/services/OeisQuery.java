@@ -19,7 +19,7 @@ package org.oeis.api.services;
 import org.oeis.api.common.PagedList;
 
 /**
- * The Interface WorldBankQuery.
+ * The Interface OeisQuery.
  */
 public interface OeisQuery<E> extends OeisCommunicator {
 	

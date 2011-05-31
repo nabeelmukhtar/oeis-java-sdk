@@ -28,7 +28,7 @@ import org.oeis.api.services.constant.ApplicationConstants;
 import org.oeis.api.services.constant.OeisApiUrls.OeisApiUrlBuilder;
 
 /**
- * The Class BaseWorldBankQuery.
+ * The Class BaseOeisQuery.
  */
 public abstract class BaseOeisQuery<E> extends OeisApiGateway implements OeisQuery<E> {
 	
@@ -42,7 +42,7 @@ public abstract class BaseOeisQuery<E> extends OeisApiGateway implements OeisQue
 	protected OeisApiUrlBuilder apiUrlBuilder;
     
 	/**
-	 * Instantiates a new base world bank query.
+	 * Instantiates a new base oeis query.
 	 */
 	public BaseOeisQuery() {
         // by default we compress contents
@@ -51,7 +51,7 @@ public abstract class BaseOeisQuery<E> extends OeisApiGateway implements OeisQue
 	}
 
 	/**
-	 * Instantiates a new base world bank query.
+	 * Instantiates a new base oeis query.
 	 * 
 	 * @param apiVersion the api version
 	 */
@@ -62,17 +62,18 @@ public abstract class BaseOeisQuery<E> extends OeisApiGateway implements OeisQue
 	/* (non-Javadoc)
 	 * @see com.google.code.stackexchange.client.query.StackOverflowApiQuery#list()
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public PagedList<E> list() {
-		InputStream jsonContent = null;
+		InputStream is = null;
         try {
-        	jsonContent = callApiGet(apiUrlBuilder.buildUrl());
-        	PagedList<E> responseList = parser.parse(new InputStreamReader(jsonContent, UTF_8_CHAR_SET));
+        	is = callApiGet(apiUrlBuilder.buildUrl());
+        	PagedList<E> responseList = (PagedList<E>) parser.parse(new InputStreamReader(is, UTF_8_CHAR_SET));
 			return responseList;
         } catch (Exception e) {
             throw new OeisException(e);
         } finally {
-	        closeStream(jsonContent);
+	        closeStream(is);
 	    }
 	}
 	
@@ -86,11 +87,11 @@ public abstract class BaseOeisQuery<E> extends OeisApiGateway implements OeisQue
 	}
 	
 	/**
-	 * Creates the world bank api url builder.
+	 * Creates the oeis api url builder.
 	 * 
 	 * @param urlFormat the url format
 	 * 
-	 * @return the world bank api url builder
+	 * @return the oeis api url builder
 	 */
 	protected OeisApiUrlBuilder createOeisApiUrlBuilder(String urlFormat) {
 		return new OeisApiUrlBuilder(urlFormat);

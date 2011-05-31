@@ -31,7 +31,7 @@ import org.oeis.api.common.ValueEnum;
 
 
 /**
- * The Class WorldBankApiUrls.
+ * The Class OeisApiUrls.
  */
 public final class OeisApiUrls {
 
@@ -41,7 +41,7 @@ public final class OeisApiUrls {
     /** The Constant logger. */
     private static final Logger logger = Logger.getLogger(OeisApiUrls.class.getCanonicalName());
     
-    /** The Constant worldBankApiUrls. */
+    /** The Constant oeisApiUrls. */
     private static final Properties oeisApiUrls = new Properties();
 
     static {
@@ -52,16 +52,16 @@ public final class OeisApiUrls {
         }
     }
     
-    /** The Constant COUNTRIES_URL. */
+    /** The Constant SEARCH_URL. */
     public static final String SEARCH_URL = oeisApiUrls.getProperty("org.oeis.api.services.search");
     
     /**
-     * Instantiates a new world bank api urls.
+     * Instantiates a new oeis api urls.
      */
     private OeisApiUrls() {}
 
     /**
-     * The Class WorldBankApiUrlBuilder.
+     * The Class OeisApiUrlBuilder.
      */
     public static class OeisApiUrlBuilder {
         
@@ -81,7 +81,7 @@ public final class OeisApiUrls {
 		private Map<String, String> fieldsMap = new HashMap<String, String>();
 	    
     	/**
-	     * Instantiates a new world bank api url builder.
+	     * Instantiates a new oeis api url builder.
 	     * 
 	     * @param urlFormat the url format
 	     */
@@ -90,7 +90,7 @@ public final class OeisApiUrls {
     	}
     	
     	/**
-	     * Instantiates a new world bank api url builder.
+	     * Instantiates a new oeis api url builder.
 	     * 
 	     * @param urlFormat the url format
 	     * @param apiVersion the api version
@@ -108,7 +108,7 @@ public final class OeisApiUrls {
 	     * @param name the name
 	     * @param value the value
 	     * 
-	     * @return the world bank api url builder
+	     * @return the oeis api url builder
 	     */
 	    public OeisApiUrlBuilder withParameter(String name, String value) {
 	    	if (value != null && value.length() > 0) {
@@ -124,7 +124,7 @@ public final class OeisApiUrls {
 	     * @param name the name
 	     * @param value the value
 	     * 
-	     * @return the world bank api url builder
+	     * @return the oeis api url builder
 	     */
 	    public OeisApiUrlBuilder withParameterEnum(String name, ValueEnum value) {
 	    	withParameter(name, value.value());
@@ -139,7 +139,7 @@ public final class OeisApiUrls {
 	     * @param enumSet the enum set
 	     * @param separator the separator
 	     * 
-	     * @return the world bank api url builder
+	     * @return the oeis api url builder
 	     */
 	    public OeisApiUrlBuilder withParameterEnumSet(String name, Set<? extends ValueEnum> enumSet, String separator) {
 	    	StringBuilder builder = new StringBuilder();
@@ -161,7 +161,7 @@ public final class OeisApiUrls {
 		 * 
 		 * @param name the name
 		 * 
-		 * @return the world bank api url builder
+		 * @return the oeis api url builder
 		 */
 		public OeisApiUrlBuilder withEmptyField(String name) {
 			fieldsMap.put(name, "");
@@ -175,7 +175,7 @@ public final class OeisApiUrls {
 		 * @param name the name
 		 * @param value the value
 		 * 
-		 * @return the world bank api url builder
+		 * @return the oeis api url builder
 		 */
 		public OeisApiUrlBuilder withField(String name, String value) {
 			withField(name, value, false);
@@ -190,7 +190,7 @@ public final class OeisApiUrls {
 		 * @param value the value
 		 * @param escape the escape
 		 * 
-		 * @return the world bank api url builder
+		 * @return the oeis api url builder
 		 */
 		public OeisApiUrlBuilder withField(String name, String value,
 				boolean escape) {
@@ -209,7 +209,7 @@ public final class OeisApiUrls {
 		 * @param name the name
 		 * @param value the value
 		 * 
-		 * @return the world bank api url builder
+		 * @return the oeis api url builder
 		 */
 		public OeisApiUrlBuilder withFieldEnum(String name, ValueEnum value) {
 			if (value.value() == null || value.value().length() == 0) {

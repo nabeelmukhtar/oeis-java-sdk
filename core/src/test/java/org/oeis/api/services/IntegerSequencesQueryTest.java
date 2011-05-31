@@ -24,7 +24,7 @@ import org.oeis.api.schema.IntegerSequence;
 import org.oeis.api.services.IntegerSequenceQuery;
 
 /**
- * The Class CountryQueryTest.
+ * The Class IntegerSequencesQueryTest.
  */
 public class IntegerSequencesQueryTest extends BaseOeisQueryTest {
 	

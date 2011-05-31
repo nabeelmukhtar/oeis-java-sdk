@@ -17,11 +17,66 @@
 package org.oeis.api.services;
 
 import org.oeis.api.schema.IntegerSequence;
+import org.oeis.api.schema.Keyword;
 
 
 
 /**
- * The Interface CountryQuery.
+ * The Interface IntegerSequenceQuery.
  */
 public interface IntegerSequenceQuery extends OeisQuery<IntegerSequence> {
+	
+	/**
+	 * With query.
+	 * 
+	 * @param query the query
+	 * 
+	 * @return the integer sequence query
+	 */
+	public IntegerSequenceQuery withQuery(String query);
+	
+	/**
+	 * With ordered terms.
+	 * 
+	 * @param terms the terms
+	 * 
+	 * @return the integer sequence query
+	 */
+	public IntegerSequenceQuery withOrderedTerms(int... terms);
+	
+	/**
+	 * With terms.
+	 * 
+	 * @param terms the terms
+	 * 
+	 * @return the integer sequence query
+	 */
+	public IntegerSequenceQuery withTerms(int... terms);
+	
+	/**
+	 * With author.
+	 * 
+	 * @param author the author
+	 * 
+	 * @return the integer sequence query
+	 */
+	public IntegerSequenceQuery withAuthor(String author);
+	
+	/**
+	 * With keywords.
+	 * 
+	 * @param keywords the keywords
+	 * 
+	 * @return the integer sequence query
+	 */
+	public IntegerSequenceQuery withKeywords(Keyword... keywords);
+	
+	/**
+	 * With ids.
+	 * 
+	 * @param ids the ids
+	 * 
+	 * @return the integer sequence query
+	 */
+	public IntegerSequenceQuery withIds(String... ids);
 }

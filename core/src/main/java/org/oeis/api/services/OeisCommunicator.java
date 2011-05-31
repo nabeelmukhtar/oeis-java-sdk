@@ -19,7 +19,7 @@ package org.oeis.api.services;
 import java.util.Map;
 
 /**
- * The Interface WorldBankCommunicator.
+ * The Interface OeisCommunicator.
  */
 public interface OeisCommunicator {
 
