@@ -28,6 +28,7 @@ public interface ParameterNames {
 	public static final String PAGE = "page";
 	
 	public static final String PER_PAGE = "per_page";
+	public static final String SORT = "sort";
 	
 	public static final String QUERY = "q";
 	
