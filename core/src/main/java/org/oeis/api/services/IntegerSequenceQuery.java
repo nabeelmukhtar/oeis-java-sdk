@@ -18,6 +18,7 @@ package org.oeis.api.services;
 
 import org.oeis.api.schema.IntegerSequence;
 import org.oeis.api.schema.Keyword;
+import org.oeis.api.schema.Order;
 
 
 
@@ -54,6 +55,15 @@ public interface IntegerSequenceQuery extends OeisQuery<IntegerSequence> {
 	public IntegerSequenceQuery withTerms(long... terms);
 	
 	/**
+	 * With out terms.
+	 * 
+	 * @param terms the terms
+	 * 
+	 * @return the integer sequence query
+	 */
+	public IntegerSequenceQuery withOutTerms(long... terms);
+	
+	/**
 	 * With author.
 	 * 
 	 * @param author the author
@@ -72,6 +82,24 @@ public interface IntegerSequenceQuery extends OeisQuery<IntegerSequence> {
 	public IntegerSequenceQuery withKeywords(Keyword... keywords);
 	
 	/**
+	 * With any keyword.
+	 * 
+	 * @param keywords the keywords
+	 * 
+	 * @return the integer sequence query
+	 */
+	public IntegerSequenceQuery withAnyKeyword(Keyword... keywords);
+	
+	/**
+	 * With out keywords.
+	 * 
+	 * @param keywords the keywords
+	 * 
+	 * @return the integer sequence query
+	 */
+	public IntegerSequenceQuery withOutKeywords(Keyword... keywords);
+	
+	/**
 	 * With ids.
 	 * 
 	 * @param ids the ids
@@ -79,4 +107,130 @@ public interface IntegerSequenceQuery extends OeisQuery<IntegerSequence> {
 	 * @return the integer sequence query
 	 */
 	public IntegerSequenceQuery withIds(String... ids);
+	
+	/**
+	 * With comment.
+	 * 
+	 * @param comment the comment
+	 * 
+	 * @return the integer sequence query
+	 */
+	public IntegerSequenceQuery withComment(String comment);
+	
+	/**
+	 * With reference.
+	 * 
+	 * @param ref the ref
+	 * 
+	 * @return the integer sequence query
+	 */
+	public IntegerSequenceQuery withReference(String ref);
+	
+	/**
+	 * With link.
+	 * 
+	 * @param link the link
+	 * 
+	 * @return the integer sequence query
+	 */
+	public IntegerSequenceQuery withLink(String link);
+	
+	/**
+	 * With formula.
+	 * 
+	 * @param formula the formula
+	 * 
+	 * @return the integer sequence query
+	 */
+	public IntegerSequenceQuery withFormula(String formula);
+	
+	/**
+	 * With name.
+	 * 
+	 * @param name the name
+	 * 
+	 * @return the integer sequence query
+	 */
+	public IntegerSequenceQuery withName(String name);
+	
+	/**
+	 * With example.
+	 * 
+	 * @param example the example
+	 * 
+	 * @return the integer sequence query
+	 */
+	public IntegerSequenceQuery withExample(String example);
+	
+	/**
+	 * With maple program.
+	 * 
+	 * @param maple the maple
+	 * 
+	 * @return the integer sequence query
+	 */
+	public IntegerSequenceQuery withMapleProgram(String maple);
+	
+	/**
+	 * With mathematica program.
+	 * 
+	 * @param mathematica the mathematica
+	 * 
+	 * @return the integer sequence query
+	 */
+	public IntegerSequenceQuery withMathematicaProgram(String mathematica);
+	
+	/**
+	 * With other program.
+	 * 
+	 * @param program the program
+	 * 
+	 * @return the integer sequence query
+	 */
+	public IntegerSequenceQuery withOtherProgram(String program);
+	
+	/**
+	 * With xref.
+	 * 
+	 * @param xref the xref
+	 * 
+	 * @return the integer sequence query
+	 */
+	public IntegerSequenceQuery withXref(String xref);
+	
+	/**
+	 * With extension.
+	 * 
+	 * @param extension the extension
+	 * 
+	 * @return the integer sequence query
+	 */
+	public IntegerSequenceQuery withExtension(String extension);
+	
+	/**
+	 * With sort.
+	 * 
+	 * @param sort the sort
+	 * 
+	 * @return the integer sequence query
+	 */
+	public IntegerSequenceQuery withSort(Order sort);
+	
+	/**
+	 * With count.
+	 * 
+	 * @param count the count
+	 * 
+	 * @return the integer sequence query
+	 */
+	public IntegerSequenceQuery withCount(int count);
+	
+	/**
+	 * With start.
+	 * 
+	 * @param start the start
+	 * 
+	 * @return the integer sequence query
+	 */
+	public IntegerSequenceQuery withStart(int start);
 }

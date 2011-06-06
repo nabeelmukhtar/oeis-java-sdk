@@ -93,7 +93,6 @@ public final class OeisApiUrls {
 	     * Instantiates a new oeis api url builder.
 	     * 
 	     * @param urlFormat the url format
-	     * @param apiVersion the api version
 	     * @param format the format
 	     */
 	    public OeisApiUrlBuilder(String urlFormat, String format) {

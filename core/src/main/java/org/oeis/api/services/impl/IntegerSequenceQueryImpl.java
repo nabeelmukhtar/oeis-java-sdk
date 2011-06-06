@@ -19,6 +19,7 @@ package org.oeis.api.services.impl;
 import org.oeis.api.common.PagedList;
 import org.oeis.api.schema.IntegerSequence;
 import org.oeis.api.schema.Keyword;
+import org.oeis.api.schema.Order;
 import org.oeis.api.services.IntegerSequenceQuery;
 import org.oeis.api.services.constant.OeisApiUrls;
 import org.oeis.api.services.constant.ParameterNames;
@@ -55,7 +56,12 @@ public class IntegerSequenceQueryImpl extends BaseOeisQuery<IntegerSequence> imp
 	@Override
 	public IntegerSequenceQuery withIds(String... ids) {
 		for (int i = 0; i < ids.length; i++) {
-			queryBuilder.append(ParameterNames.ID).append(ids[i]).append(" ");
+			queryBuilder.append(ParameterNames.ID).append(ids[i]);
+			if (i != (ids.length - 1)) {
+				queryBuilder.append("|");				
+			} else {
+				queryBuilder.append(" ");
+			}
 		}
 		return this;
 	}
@@ -114,5 +120,169 @@ public class IntegerSequenceQueryImpl extends BaseOeisQuery<IntegerSequence> imp
 	public PagedList<IntegerSequence> list() {
 		apiUrlBuilder.withParameter(ParameterNames.QUERY, queryBuilder.toString().trim());
 		return super.list();
+	}
+
+	/* (non-Javadoc)
+	 * @see org.oeis.api.services.IntegerSequenceQuery#withOutKeywords(org.oeis.api.schema.Keyword[])
+	 */
+	@Override
+	public IntegerSequenceQuery withOutKeywords(Keyword... keywords) {
+		for (int i = 0; i < keywords.length; i++) {
+			queryBuilder.append("-").append(ParameterNames.KEYWORD).append(keywords[i].value()).append(" ");
+		}
+		return this;
+	}
+
+	/* (non-Javadoc)
+	 * @see org.oeis.api.services.IntegerSequenceQuery#withOutTerms(long[])
+	 */
+	@Override
+	public IntegerSequenceQuery withOutTerms(long... terms) {
+		for (int i = 0; i < terms.length; i++) {
+			queryBuilder.append("~").append(terms[i]).append(" ");
+		}
+		return this;
+	}
+
+	/* (non-Javadoc)
+	 * @see org.oeis.api.services.IntegerSequenceQuery#withAnyKeyword(org.oeis.api.schema.Keyword[])
+	 */
+	@Override
+	public IntegerSequenceQuery withAnyKeyword(Keyword... keywords) {
+		for (int i = 0; i < keywords.length; i++) {
+			queryBuilder.append(ParameterNames.KEYWORD).append(keywords[i].value());
+			if (i != (keywords.length - 1)) {
+				queryBuilder.append("|");				
+			} else {
+				queryBuilder.append(" ");
+			}
+		}
+		return this;
+	}
+
+	/* (non-Javadoc)
+	 * @see org.oeis.api.services.IntegerSequenceQuery#withComment(java.lang.String)
+	 */
+	@Override
+	public IntegerSequenceQuery withComment(String comment) {
+		queryBuilder.append(ParameterNames.COMMENT).append(comment).append(" ");
+		return this;
+	}
+
+	/* (non-Javadoc)
+	 * @see org.oeis.api.services.IntegerSequenceQuery#withExample(java.lang.String)
+	 */
+	@Override
+	public IntegerSequenceQuery withExample(String example) {
+		queryBuilder.append(ParameterNames.EXAMPLE).append(example).append(" ");
+		return this;
+	}
+
+	/* (non-Javadoc)
+	 * @see org.oeis.api.services.IntegerSequenceQuery#withExtension(java.lang.String)
+	 */
+	@Override
+	public IntegerSequenceQuery withExtension(String extension) {
+		queryBuilder.append(ParameterNames.EXTENSION).append(extension).append(" ");
+		return this;
+	}
+
+	/* (non-Javadoc)
+	 * @see org.oeis.api.services.IntegerSequenceQuery#withFormula(java.lang.String)
+	 */
+	@Override
+	public IntegerSequenceQuery withFormula(String formula) {
+		queryBuilder.append(ParameterNames.FORMULA).append(formula).append(" ");
+		return this;
+	}
+
+	/* (non-Javadoc)
+	 * @see org.oeis.api.services.IntegerSequenceQuery#withLink(java.lang.String)
+	 */
+	@Override
+	public IntegerSequenceQuery withLink(String link) {
+		queryBuilder.append(ParameterNames.LINK).append(link).append(" ");
+		return this;
+	}
+
+	/* (non-Javadoc)
+	 * @see org.oeis.api.services.IntegerSequenceQuery#withMapleProgram(java.lang.String)
+	 */
+	@Override
+	public IntegerSequenceQuery withMapleProgram(String maple) {
+		queryBuilder.append(ParameterNames.MAPLE).append(maple).append(" ");
+		return this;
+	}
+
+	/* (non-Javadoc)
+	 * @see org.oeis.api.services.IntegerSequenceQuery#withMathematicaProgram(java.lang.String)
+	 */
+	@Override
+	public IntegerSequenceQuery withMathematicaProgram(String mathematica) {
+		queryBuilder.append(ParameterNames.MATHEMATICA).append(mathematica).append(" ");
+		return this;
+	}
+
+	/* (non-Javadoc)
+	 * @see org.oeis.api.services.IntegerSequenceQuery#withName(java.lang.String)
+	 */
+	@Override
+	public IntegerSequenceQuery withName(String name) {
+		queryBuilder.append(ParameterNames.NAME).append(name).append(" ");
+		return this;
+	}
+
+	/* (non-Javadoc)
+	 * @see org.oeis.api.services.IntegerSequenceQuery#withOtherProgram(java.lang.String)
+	 */
+	@Override
+	public IntegerSequenceQuery withOtherProgram(String program) {
+		queryBuilder.append(ParameterNames.PROGRAM).append(program).append(" ");
+		return this;
+	}
+
+	/* (non-Javadoc)
+	 * @see org.oeis.api.services.IntegerSequenceQuery#withReference(java.lang.String)
+	 */
+	@Override
+	public IntegerSequenceQuery withReference(String ref) {
+		queryBuilder.append(ParameterNames.REF).append(ref).append(" ");
+		return this;
+	}
+
+	/* (non-Javadoc)
+	 * @see org.oeis.api.services.IntegerSequenceQuery#withXref(java.lang.String)
+	 */
+	@Override
+	public IntegerSequenceQuery withXref(String xref) {
+		queryBuilder.append(ParameterNames.XREF).append(xref).append(" ");
+		return this;
+	}
+
+	/* (non-Javadoc)
+	 * @see org.oeis.api.services.IntegerSequenceQuery#withSort(org.oeis.api.schema.Order)
+	 */
+	@Override
+	public IntegerSequenceQuery withSort(Order sort) {
+		apiUrlBuilder.withParameter(ParameterNames.SORT, sort.value());
+		return this;
+	}
+	
+	/* (non-Javadoc)
+	 * @see org.oeis.api.services.IntegerSequenceQuery#withCount(int)
+	 */
+	@Override
+	public IntegerSequenceQuery withCount(int count) {
+		apiUrlBuilder.withParameter(ParameterNames.COUNT, String.valueOf(count));
+		return this;
+	}
+
+	/* (non-Javadoc)
+	 * @see org.oeis.api.services.IntegerSequenceQuery#withStart(int)
+	 */
+	@Override
+	public IntegerSequenceQuery withStart(int start) {
+		apiUrlBuilder.withParameter(ParameterNames.START, String.valueOf(start));
+		return this;
 	}
 }

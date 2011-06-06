@@ -192,7 +192,7 @@ public class OeisParser {
 	 * 
 	 * @param value the value
 	 * 
-	 * @return the list< integer>
+	 * @return the list< long>
 	 */
 	private List<Long> parseIntegerArray(String value) {
 		String[] tokens = value.split(",");

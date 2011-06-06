@@ -22,21 +22,23 @@ import java.util.Map;
 import org.oeis.api.common.ValueEnum;
 
 /**
- * The Enum Keyword.
+ * The Enum Order.
  */
 public enum Order implements ValueEnum {
 	
-	/** The BASE. */
+	/** The RELEVANCE. */
 	RELEVANCE(""),
+	
+	/** The REFERENCES. */
 	REFERENCES("references"),
 	
-	/** The BREF. */
+	/** The NUMBER. */
 	NUMBER("number"),
 	
-	/** The COFR. */
+	/** The MODIFIED. */
 	MODIFIED("modified"),
 	
-	/** The WORD. */
+	/** The CREATED. */
 	CREATED("created");
 	
 	
@@ -53,7 +55,7 @@ public enum Order implements ValueEnum {
     private final String value;
     
     /**
-     * Instantiates a new keyword.
+     * Instantiates a new order.
      * 
      * @param value the value
      */
@@ -74,7 +76,7 @@ public enum Order implements ValueEnum {
 	 * 
 	 * @param value the value
 	 * 
-	 * @return the keyword
+	 * @return the order
 	 */
 	public static Order fromValue(String value) {
 		return stringToEnum.get(value);

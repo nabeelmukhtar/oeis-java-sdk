@@ -27,33 +27,78 @@ public interface ParameterNames {
 	/** The Constant PAGE. */
 	public static final String PAGE = "page";
 	
+	/** The Constant PER_PAGE. */
 	public static final String PER_PAGE = "per_page";
+	
+	/** The Constant SORT. */
 	public static final String SORT = "sort";
 	
+	/** The Constant QUERY. */
 	public static final String QUERY = "q";
 	
+	/** The Constant MRV. */
 	public static final String MRV = "MRV";
 	
+	/** The Constant GAP_FILL. */
 	public static final String GAP_FILL = "Gapfill";
 	
+	/** The Constant FREQUENCY. */
 	public static final String FREQUENCY = "frequency";
 	
+	/** The Constant ID. */
 	public static final String ID = "id:";
 	
+	/** The Constant SIGNED. */
 	public static final String SIGNED = "signed:";
+	
+	/** The Constant SEQ. */
 	public static final String SEQ = "seq:";
+	
+	/** The Constant NAME. */
 	public static final String NAME = "name:";
+	
+	/** The Constant OFFSET. */
 	public static final String OFFSET = "offset:";
+	
+	/** The Constant COMMENT. */
 	public static final String COMMENT = "comment:";
+	
+	/** The Constant REF. */
 	public static final String REF = "ref:";
+	
+	/** The Constant LINK. */
 	public static final String LINK = "link:";
+	
+	/** The Constant FORMULA. */
 	public static final String FORMULA = "formula:";
+	
+	/** The Constant EXAMPLE. */
 	public static final String EXAMPLE = "example:";
+	
+	/** The Constant MAPLE. */
 	public static final String MAPLE = "maple:";
+	
+	/** The Constant MATHEMATICA. */
 	public static final String MATHEMATICA = "mathematica:";
+	
+	/** The Constant PROGRAM. */
 	public static final String PROGRAM = "program:";
+	
+	/** The Constant XREF. */
 	public static final String XREF = "xref:";
+	
+	/** The Constant KEYWORD. */
 	public static final String KEYWORD = "keyword:";
+	
+	/** The Constant AUTHOR. */
 	public static final String AUTHOR = "author:";
+	
+	/** The Constant EXTENSION. */
 	public static final String EXTENSION = "extension:";
+
+	/** The Constant COUNT. */
+	public static final String COUNT = "n";
+
+	/** The Constant START. */
+	public static final String START = "start";
 }
