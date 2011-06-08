@@ -16,13 +16,8 @@
  */
 package org.oeis.api.services.impl;
 
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.nio.charset.Charset;
-import java.util.List;
 
-import org.oeis.api.common.PagedList;
-import org.oeis.api.services.OeisException;
 import org.oeis.api.services.OeisQuery;
 import org.oeis.api.services.constant.ApplicationConstants;
 import org.oeis.api.services.constant.OeisApiUrls.OeisApiUrlBuilder;
@@ -35,9 +30,6 @@ public abstract class BaseOeisQuery<E> extends OeisApiGateway implements OeisQue
 	/** The Constant UTF_8_CHAR_SET. */
 	protected static final Charset UTF_8_CHAR_SET = Charset.forName(ApplicationConstants.CONTENT_ENCODING);
 	
-    /** The parser. */
-    private final OeisParser parser = new OeisParser();
-    
 	/** The api url builder. */
 	protected OeisApiUrlBuilder apiUrlBuilder;
     
@@ -57,33 +49,6 @@ public abstract class BaseOeisQuery<E> extends OeisApiGateway implements OeisQue
 	 */
 	public BaseOeisQuery(String apiVersion) {
 		setApiVersion(apiVersion);
-	}
-	
-	/* (non-Javadoc)
-	 * @see com.google.code.stackexchange.client.query.StackOverflowApiQuery#list()
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public PagedList<E> list() {
-		InputStream is = null;
-        try {
-        	is = callApiGet(apiUrlBuilder.buildUrl());
-        	PagedList<E> responseList = (PagedList<E>) parser.parse(new InputStreamReader(is, UTF_8_CHAR_SET));
-			return responseList;
-        } catch (Exception e) {
-            throw new OeisException(e);
-        } finally {
-	        closeStream(is);
-	    }
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.worldbank.api.services.WorldBankQuery#singleResult()
-	 */
-	@Override
-	public E singleResult() {
-		List<E> list = list();
-		return (list.isEmpty())? null : list.get(0);
 	}
 	
 	/**

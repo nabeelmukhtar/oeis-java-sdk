@@ -101,4 +101,46 @@ public interface ParameterNames {
 
 	/** The Constant START. */
 	public static final String START = "start";
+
+	/** The Constant RANDOM. */
+	public static final String RANDOM = "random";
+
+	/** The Constant MIDI. */
+	public static final String MIDI = "midi";
+
+	/** The Constant PLAY. */
+	public static final String PLAY = "PLAY";
+
+	/** The Constant SEQUENCE. */
+	public static final String SEQUENCE = "seq";
+	
+	/** The Constant RATE. */
+	public static final String RATE = "bpm";
+	
+	/** The Constant VOLUME. */
+	public static final String VOLUME = "vol";
+	
+	/** The Constant VOICE. */
+	public static final String VOICE = "voice";
+	
+	/** The Constant ATTACK_VELOCITY. */
+	public static final String ATTACK_VELOCITY = "velon";
+	
+	/** The Constant RELEASE_VELOCITY. */
+	public static final String RELEASE_VELOCITY = "veloff";
+	
+	/** The Constant PITCH_MODULUS. */
+	public static final String PITCH_MODULUS = "pmod";
+	
+	/** The Constant PITCH_OFFSET. */
+	public static final String PITCH_OFFSET = "poff";
+	
+	/** The Constant DURATION_MODULUS. */
+	public static final String DURATION_MODULUS = "dmod";
+	
+	/** The Constant DURATION_OFFSET. */
+	public static final String DURATION_OFFSET = "doff";
+	
+	/** The Constant SEQUENCE_CUTOFF. */
+	public static final String SEQUENCE_CUTOFF = "cutoff";
 }

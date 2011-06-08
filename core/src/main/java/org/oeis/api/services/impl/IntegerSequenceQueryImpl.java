@@ -16,11 +16,16 @@
  */
 package org.oeis.api.services.impl;
 
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.List;
+
 import org.oeis.api.common.PagedList;
 import org.oeis.api.schema.IntegerSequence;
 import org.oeis.api.schema.Keyword;
 import org.oeis.api.schema.Order;
 import org.oeis.api.services.IntegerSequenceQuery;
+import org.oeis.api.services.OeisException;
 import org.oeis.api.services.constant.OeisApiUrls;
 import org.oeis.api.services.constant.ParameterNames;
 
@@ -30,6 +35,9 @@ import org.oeis.api.services.constant.ParameterNames;
 public class IntegerSequenceQueryImpl extends BaseOeisQuery<IntegerSequence> implements
 	IntegerSequenceQuery {
 	
+    /** The parser. */
+    private final OeisParser parser = new OeisParser();
+    
 	/** The query builder. */
 	StringBuilder queryBuilder = new StringBuilder();
 
@@ -113,15 +121,6 @@ public class IntegerSequenceQueryImpl extends BaseOeisQuery<IntegerSequence> imp
 		return this;
 	}
 	
-	/* (non-Javadoc)
-	 * @see org.oeis.api.services.impl.BaseOeisQuery#list()
-	 */
-	@Override
-	public PagedList<IntegerSequence> list() {
-		apiUrlBuilder.withParameter(ParameterNames.QUERY, queryBuilder.toString().trim());
-		return super.list();
-	}
-
 	/* (non-Javadoc)
 	 * @see org.oeis.api.services.IntegerSequenceQuery#withOutKeywords(org.oeis.api.schema.Keyword[])
 	 */
@@ -284,5 +283,42 @@ public class IntegerSequenceQueryImpl extends BaseOeisQuery<IntegerSequence> imp
 	public IntegerSequenceQuery withStart(int start) {
 		apiUrlBuilder.withParameter(ParameterNames.START, String.valueOf(start));
 		return this;
+	}
+
+	/* (non-Javadoc)
+	 * @see org.oeis.api.services.IntegerSequenceQuery#withRandom(int)
+	 */
+	@Override
+	public IntegerSequenceQuery withRandom(int random) {
+		apiUrlBuilder.withParameter(ParameterNames.RANDOM, String.valueOf(random));
+		return this;
+	}
+	
+	/* (non-Javadoc)
+	 * @see com.google.code.stackexchange.client.query.StackOverflowApiQuery#list()
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public PagedList<IntegerSequence> list() {
+		InputStream is = null;
+        try {
+    		apiUrlBuilder.withParameter(ParameterNames.QUERY, queryBuilder.toString().trim());
+        	is = callApiGet(apiUrlBuilder.buildUrl());
+        	PagedList<IntegerSequence> responseList = parser.parse(new InputStreamReader(is, UTF_8_CHAR_SET));
+			return responseList;
+        } catch (Exception e) {
+            throw new OeisException(e);
+        } finally {
+	        closeStream(is);
+	    }
+	}
+	
+	/* (non-Javadoc)
+	 * @see org.worldbank.api.services.WorldBankQuery#singleResult()
+	 */
+	@Override
+	public IntegerSequence singleResult() {
+		List<IntegerSequence> list = list();
+		return (list.isEmpty())? null : list.get(0);
 	}
 }

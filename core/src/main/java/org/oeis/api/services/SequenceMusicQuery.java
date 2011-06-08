@@ -21,16 +21,150 @@ import java.io.InputStream;
 
 
 /**
- * The Interface IntegerSequenceQuery.
+ * The Interface SequenceMusicQuery.
  */
 public interface SequenceMusicQuery extends OeisQuery<InputStream> {
 	
 	/**
-	 * With ids.
+	 * The Enum Instrument.
+	 */
+	public enum Instrument {
+		
+		/** The ACOUSTI c_ gran d_ piano. */
+		ACOUSTIC_GRAND_PIANO(1, "Acoustic Grand Piano");
+		
+		/** The id. */
+		private final int id;
+		
+		/** The value. */
+		private final String value;
+		
+		/**
+		 * Instantiates a new instrument.
+		 * 
+		 * @param id the id
+		 * @param value the value
+		 */
+		Instrument(int id, String value) {
+			this.id= id;
+			this.value = value;
+		}
+		
+		/**
+		 * Id.
+		 * 
+		 * @return the int
+		 */
+		public int id() {
+			return id;
+		}
+		
+		/**
+		 * Value.
+		 * 
+		 * @return the string
+		 */
+		public String value() {
+			return value;
+		}
+	}
+	
+	/**
+	 * With sequence id.
 	 * 
-	 * @param ids the ids
+	 * @param sequenceId the sequence id
 	 * 
-	 * @return the integer sequence query
+	 * @return the sequence music query
 	 */
 	public SequenceMusicQuery withSequenceId(String sequenceId);
+	
+	/**
+	 * With rate.
+	 * 
+	 * @param rate the rate
+	 * 
+	 * @return the sequence music query
+	 */
+	public SequenceMusicQuery withRate(int rate);
+	
+	/**
+	 * With volume.
+	 * 
+	 * @param volume the volume
+	 * 
+	 * @return the sequence music query
+	 */
+	public SequenceMusicQuery withVolume (int volume);
+	
+	/**
+	 * With instrument.
+	 * 
+	 * @param instrument the instrument
+	 * 
+	 * @return the sequence music query
+	 */
+	public SequenceMusicQuery withInstrument(Instrument instrument);
+	
+	/**
+	 * With attack velocity.
+	 * 
+	 * @param attackVelocity the attack velocity
+	 * 
+	 * @return the sequence music query
+	 */
+	public SequenceMusicQuery withAttackVelocity(int attackVelocity);
+	
+	/**
+	 * With release velocity.
+	 * 
+	 * @param releaseVelocity the release velocity
+	 * 
+	 * @return the sequence music query
+	 */
+	public SequenceMusicQuery withReleaseVelocity(int releaseVelocity);
+	
+	/**
+	 * With pitch modulus.
+	 * 
+	 * @param pitchModulus the pitch modulus
+	 * 
+	 * @return the sequence music query
+	 */
+	public SequenceMusicQuery withPitchModulus(int pitchModulus);
+	
+	/**
+	 * With pitch offset.
+	 * 
+	 * @param pitchOffset the pitch offset
+	 * 
+	 * @return the sequence music query
+	 */
+	public SequenceMusicQuery withPitchOffset(int pitchOffset);
+	
+	/**
+	 * With duration modulus.
+	 * 
+	 * @param durationModulus the duration modulus
+	 * 
+	 * @return the sequence music query
+	 */
+	public SequenceMusicQuery withDurationModulus(int durationModulus);
+	
+	/**
+	 * With duration offset.
+	 * 
+	 * @param durationOffset the duration offset
+	 * 
+	 * @return the sequence music query
+	 */
+	public SequenceMusicQuery withDurationOffset(int durationOffset);
+	
+	/**
+	 * With sequence cuttoff.
+	 * 
+	 * @param sequenceCutoff the sequence cutoff
+	 * 
+	 * @return the sequence music query
+	 */
+	public SequenceMusicQuery withSequenceCuttoff(long sequenceCutoff);
 }

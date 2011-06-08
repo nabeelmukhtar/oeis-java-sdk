@@ -16,11 +16,17 @@
  */
 package org.oeis.api.services.example;
 
+import java.io.InputStream;
 import java.util.List;
+
+import javax.sound.midi.MidiSystem;
+import javax.sound.midi.Sequence;
+import javax.sound.midi.Sequencer;
 
 import org.oeis.api.schema.IntegerSequence;
 import org.oeis.api.services.IntegerSequenceQuery;
 import org.oeis.api.services.OeisQueryFactory;
+import org.oeis.api.services.SequenceMusicQuery;
 
 
 /**
@@ -42,6 +48,16 @@ public class IntegerSequenceQuerySample {
 		for (IntegerSequence sequence : sequences) {
 			printResult(sequence);
 		}
+		InputStream is = null;
+		try {
+			SequenceMusicQuery music = factory.createSequenceMusicQuery();
+			is = music.withSequenceId("A000142").singleResult();
+			playMusic(is);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			is.close();
+		}
 	}
 
 	/**
@@ -51,5 +67,25 @@ public class IntegerSequenceQuerySample {
 	 */
 	private static void printResult(IntegerSequence sequence) {
 		System.out.println(sequence.getCatalogNumber() + ":" + sequence.getIdentification() + ":" + sequence.getName());
+	}
+	
+	/**
+	 * Play music.
+	 * 
+	 * @param is the is
+	 * 
+	 * @throws Exception the exception
+	 */
+	private static void playMusic(InputStream is) throws Exception {
+        // From file
+        Sequence sequence = MidiSystem.getSequence(is);
+    
+        // Create a sequencer for the sequence
+        Sequencer sequencer = MidiSystem.getSequencer();
+        sequencer.open();
+        sequencer.setSequence(sequence);
+    
+        // Start playing
+        sequencer.start();
 	}
 }

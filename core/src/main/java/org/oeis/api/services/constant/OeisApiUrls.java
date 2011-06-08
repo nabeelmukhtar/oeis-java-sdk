@@ -55,6 +55,9 @@ public final class OeisApiUrls {
     /** The Constant SEARCH_URL. */
     public static final String SEARCH_URL = oeisApiUrls.getProperty("org.oeis.api.services.search");
     
+    /** The Constant PLAY_URL. */
+    public static final String PLAY_URL = oeisApiUrls.getProperty("org.oeis.api.services.play");
+    
     /**
      * Instantiates a new oeis api urls.
      */

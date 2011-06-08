@@ -233,4 +233,13 @@ public interface IntegerSequenceQuery extends OeisQuery<IntegerSequence> {
 	 * @return the integer sequence query
 	 */
 	public IntegerSequenceQuery withStart(int start);
+	
+	/**
+	 * With random.
+	 * 
+	 * @param random the random
+	 * 
+	 * @return the integer sequence query
+	 */
+	public IntegerSequenceQuery withRandom(int random);
 }

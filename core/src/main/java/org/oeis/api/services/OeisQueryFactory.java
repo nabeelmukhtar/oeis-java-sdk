@@ -17,6 +17,7 @@
 package org.oeis.api.services;
 
 import org.oeis.api.services.impl.IntegerSequenceQueryImpl;
+import org.oeis.api.services.impl.SequenceMusicQueryImpl;
 
 
 
@@ -48,5 +49,14 @@ public class OeisQueryFactory {
      */
     public IntegerSequenceQuery createIntegerSequenceQuery() {
     	return new IntegerSequenceQueryImpl();
+    }
+    
+    /**
+     * Creates a new OeisQuery object.
+     * 
+     * @return the sequence music query
+     */
+    public SequenceMusicQuery createSequenceMusicQuery() {
+    	return new SequenceMusicQueryImpl();
     }
 }
