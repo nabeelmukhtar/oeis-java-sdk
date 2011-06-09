@@ -164,7 +164,7 @@ public class SequenceMusicQueryImpl extends BaseOeisQuery<InputStream> implement
 	 * @see org.oeis.api.services.SequenceMusicQuery#withSequenceCuttoff(long)
 	 */
 	@Override
-	public SequenceMusicQuery withSequenceCuttoff(long sequenceCutoff) {
+	public SequenceMusicQuery withSequenceCutoff(long sequenceCutoff) {
 		parameters.put(ParameterNames.SEQUENCE_CUTOFF, String.valueOf(sequenceCutoff));
 		return this;
 	}
