@@ -167,4 +167,6 @@ public interface SequenceMusicQuery extends OeisQuery<InputStream> {
 	 * @return the sequence music query
 	 */
 	public SequenceMusicQuery withSequenceCuttoff(long sequenceCutoff);
+	
+	public String buildUrl();
 }
