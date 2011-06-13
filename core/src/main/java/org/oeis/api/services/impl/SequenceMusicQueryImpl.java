@@ -26,6 +26,7 @@ import org.oeis.api.services.OeisException;
 import org.oeis.api.services.SequenceMusicQuery;
 import org.oeis.api.services.constant.OeisApiUrls;
 import org.oeis.api.services.constant.ParameterNames;
+import org.oeis.api.services.constant.OeisApiUrls.OeisApiUrlBuilder;
 
 /**
  * The Class SequenceMusicQueryImpl.
@@ -78,7 +79,19 @@ public class SequenceMusicQueryImpl extends BaseOeisQuery<InputStream> implement
             throw new OeisException(e);
         }
 	}
-
+	
+	/* (non-Javadoc)
+	 * @see org.oeis.api.services.SequenceMusicQuery#buildUrl()
+	 */
+	@Override
+	public String buildUrl() {
+		OeisApiUrlBuilder urlBuilder = createOeisApiUrlBuilder(OeisApiUrls.PLAY_URL);
+		for (String name : parameters.keySet()) {
+			urlBuilder.withParameter(name, parameters.get(name));
+		}
+		return urlBuilder.buildUrl();
+	}
+	
 	/* (non-Javadoc)
 	 * @see org.oeis.api.services.SequenceMusicQuery#withSequenceId(java.lang.String)
 	 */
@@ -177,5 +190,4 @@ public class SequenceMusicQueryImpl extends BaseOeisQuery<InputStream> implement
 		parameters.put(ParameterNames.VOLUME, String.valueOf(volume));
 		return this;
 	}
-
 }

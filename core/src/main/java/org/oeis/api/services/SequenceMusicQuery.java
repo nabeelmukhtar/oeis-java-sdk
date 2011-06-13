@@ -18,6 +18,8 @@ package org.oeis.api.services;
 
 import java.io.InputStream;
 
+import org.oeis.api.common.ValueEnum;
+
 
 
 /**
@@ -28,7 +30,7 @@ public interface SequenceMusicQuery extends OeisQuery<InputStream> {
 	/**
 	 * The Enum Instrument.
 	 */
-	public enum Instrument {
+	public enum Instrument implements ValueEnum {
 		
 		/** The ACOUSTI c_ gran d_ piano. */
 		ACOUSTIC_GRAND_PIANO(1, "Acoustic Grand Piano");
@@ -59,15 +61,20 @@ public interface SequenceMusicQuery extends OeisQuery<InputStream> {
 			return id;
 		}
 		
-		/**
-		 * Value.
-		 * 
-		 * @return the string
+		/* (non-Javadoc)
+		 * @see org.oeis.api.common.ValueEnum#value()
 		 */
 		public String value() {
 			return value;
 		}
 	}
+	
+	/**
+	 * Builds the url.
+	 * 
+	 * @return the string
+	 */
+	public String buildUrl();
 	
 	/**
 	 * With sequence id.
@@ -160,11 +167,11 @@ public interface SequenceMusicQuery extends OeisQuery<InputStream> {
 	public SequenceMusicQuery withDurationOffset(int durationOffset);
 	
 	/**
-	 * With sequence cuttoff.
+	 * With sequence cutoff.
 	 * 
 	 * @param sequenceCutoff the sequence cutoff
 	 * 
 	 * @return the sequence music query
 	 */
-	public SequenceMusicQuery withSequenceCuttoff(long sequenceCutoff);
+	public SequenceMusicQuery withSequenceCutoff(long sequenceCutoff);
 }
