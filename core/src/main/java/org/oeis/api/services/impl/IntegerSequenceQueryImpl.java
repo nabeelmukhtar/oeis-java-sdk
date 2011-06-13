@@ -297,7 +297,6 @@ public class IntegerSequenceQueryImpl extends BaseOeisQuery<IntegerSequence> imp
 	/* (non-Javadoc)
 	 * @see com.google.code.stackexchange.client.query.StackOverflowApiQuery#list()
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public PagedList<IntegerSequence> list() {
 		InputStream is = null;
