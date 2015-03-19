@@ -1,0 +1,1 @@
+A Java wrapper for The On-Line Encyclopedia of Integer Sequences™ (OEIS™). (http://oeis.org/)
